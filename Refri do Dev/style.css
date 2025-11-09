@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.item {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--background);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.item.active {
+  display: flex;
+}
+
+.item .title {
+  font-size: 8rem;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.item .fruit {
+  width: 35%;
+  z-index: 3;
+}
+
+.item .refri {
+  position: absolute;
+  width: 90%;
+  z-index: 2;
+  opacity: 0.5;
+}
+
+/* Botões */
+.arrow {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.arrow button {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.arrow button:hover {
+  background: rgba(255, 255, 255, 0.6);
+  color: black;
+}
+
+/* 🔹 Responsividade */
+@media (max-width: 768px) {
+  .item .title {
+    font-size: 4rem;
+  }
+
+  .item .fruit {
+    width: 70%;
+  }
+
+  .item .refri {
+    width: 120%;
+  }
+
+  .arrow button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+  }
+}
+
+
+@keyframes toActive 
+{
+    from {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.item.active img.fruit{
+    animation: toActive 0.5s ease-in-out 1;
+
+}
+
+.item.active title{
+    animation: toActive 0.5s ease-in-out 1;
+    
+}
